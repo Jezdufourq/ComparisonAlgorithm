@@ -1,82 +1,58 @@
-#include <iostream>
-#include <vector>
-#include <iterator>
-#include <algorithm>
-#include <limits>
-#include <random>
-#include <ctime>
-#include <ratio>
-#include <chrono>
-#include <tuple>
-#include <sstream>
-#include <fstream>
-#include "testing.cpp"
-#include "AlgorithmOperations.cpp"
-#include "AlgorithmExecutionTime.cpp"
-#include "csvHandler.cpp"
-#include "dataHandler.cpp"
-#include "consoleHandler.cpp"
-#include "testHandler.cpp"
-#include <iomanip>
+#include "headerFile.h"
+#include "algorithmOps.cpp"
+#include "generateData.cpp"
+#include "csvGenerator.cpp"
+#include "consoleGenerator.cpp"
+#include "comparisonAlgorithm.cpp"
+#include "algorithmTime.cpp"
+#include "runTests.cpp"
 
-using namespace std;
-using namespace std::chrono;
-
-enum testCase{TESTING=0, EXECUTION_TIME=1, OPERATION_COUNT=2,EVEN_ARRAY=4};
-
-
-int main(int argc, char* argv[])
-{
+// Calling the main method with the following arguments
+// ./main.out TESTTYPE (As an integer)
+int main(int argc, char *argv[]) {
     int userInput;
-    cout << "=======WELCOME!=============" << endl;
+    cout << "============[! WELCOME TO ALGOCRUNCH !]=============" << endl;
     cout << "Enter the program that you would like to run" << endl;
-    cout << "TESTING=0, EXECUTION_TIME=1, OPERATION_COUNT=2" << endl;
+    cout << "FUNCTIONALITY=0, OPERATIONS=1, TIMING=2" << endl;
     cin >> userInput;
+    cout << "This program is executing with the following variables:" << endl;
+    cout << "+-- LARGE_ARRAY_VALUE: " << LARGE_ARRAY_VALUE << endl;
+    cout << "+-- LARGE_ARRAY_SIMS: " << LARGE_ARRAY_SIMS << endl;
+    cout << "+-- ARRAY_STEP_SIZE: " << ARRAY_STEP_SIZE << endl;
+    cout << "+-- ARRAY_NUM_SIMS: " << ARRAY_NUM_SIMS << endl;
+    cout << "+-- RANDOM_RANGE: " << RANDOM_RANGE << endl;
+    cout << "+-- SIMULATIONS: " << SIMULATIONS << endl;
+
+    cout << "Initilizing and completing the selected tests: " << endl;
 
     duration<double> timeTaken;
+
     auto startTime = chrono::high_resolution_clock::now();
-    switch(userInput) {
-        case EVEN_ARRAY:
-            cout << "=============TEST 2 : Even Array============" << endl;
-            testEvenArray();
-            cout << "=============================================\n" << endl;
+    switch (userInput) {
+        case FUNCTIONALITY:
+            for (int i = TEST_TYPE::NEGATIVE; i <= TEST_TYPE::SORTED; i++) {
+                runTests((TEST_TYPE) i, PROGRAM_TYPE::FUNCTIONALITY);
+            }
             break;
-        case TESTING:
-            cout << "=======TEST 1 : Odd Array=======" << endl;
-            testOddArray();
-            cout << "================================\n" << endl;
-
-            cout << "=============TEST 2 : Even Array============" << endl;
-            testEvenArray();
-            cout << "=============================================\n" << endl;
-
-            cout << "==========TEST 3 : Array Length One Array============" << endl;
-            testOneLenArray();
-            cout << "=====================================================\n" << endl;
-
-            cout << "=======TEST 4 : Large Input Array Size of 1000=======" << endl;
-            testLargeSizeArray(1000);
-            cout << "=====================================================\n" << endl;
+        case OPERATIONS:
+            for (int i = TEST_TYPE::RANDOM; i <= TEST_TYPE::SORTED; i++) {
+                runTests((TEST_TYPE) i, PROGRAM_TYPE::OPERATIONS);
+            }
             break;
-        case EXECUTION_TIME:
-            // Tests which need to be included
-            cout << "=======TEST 1 : Random array of 100 simulations=======" << endl;
-            cout << "===========TEST 1 : EXECUTION TIME TEST===============" << endl;
-            testRandArray(100, 100, 2, 50);
-            cout << "======================================================\n" << endl;
-            break;
-
-        case OPERATION_COUNT:
-            cout << "=======TEST 1 : Random array of 100 simulations=======" << endl;
-            cout << "===========TEST 1 : OPERATION COUNT TEST==============" << endl;
-            testRandArray(5000, 1, 3, 10);
-            cout << "======================================================\n" << endl;
+        case TIMING:
+            for (int i = TEST_TYPE::RANDOM; i <= TEST_TYPE::SORTED; i++) {
+                runTests((TEST_TYPE) i, PROGRAM_TYPE::TIMING);
+            }
             break;
 
         default:
-            return -1;
+            return -8;
     }
+
     auto endTime = chrono::high_resolution_clock::now();
     timeTaken = duration_cast<duration<double>>(endTime - startTime);
-    cout <<  "The execution time for the program is: "<< timeTaken.count() << endl;
+    cout << "\n=====The execution time for the program is: " << timeTaken.count() << "=====" << endl;
+
+    return 0;
 }
+
