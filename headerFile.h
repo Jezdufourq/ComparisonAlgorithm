@@ -38,6 +38,9 @@ using namespace std::chrono;
 #define RANDOM_RANGE (100000) // Range of the random variable
 #define SIMULATIONS (10) // How many simulations that the program will run
 
+// Max value
+//#define MAX_VALUE ()
+
 enum TEST_TYPE{
     NEGATIVE = 0,
     ODD = 1,

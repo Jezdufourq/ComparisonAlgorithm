@@ -6,6 +6,8 @@
 #include "comparisonAlgorithm.cpp"
 #include "algorithmTime.cpp"
 #include "runTests.cpp"
+#include "MinDistance.cpp"
+#include "MinDistance2.cpp"
 
 // Calling the main method with the following arguments
 // ./main.out TESTTYPE (As an integer)
