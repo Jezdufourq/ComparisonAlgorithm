@@ -45,7 +45,7 @@ vector<vector<int>> generateArray(TEST_TYPE type)
         case LARGE:
             for (int i = 0; i < LARGE_ARRAY_SIMS; i++)
             {
-                for (int j = 1; j < LARGE_ARRAY_VALUE; j++)
+                for (int j = 1; j < LARGE_ARRAY_DIST; j++)
                 {
                     innerArray.push_back(j);
                 }

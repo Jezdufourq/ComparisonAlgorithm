@@ -6,11 +6,11 @@
 #define ASSIGNMENT1_HASHTABLE_H
 
 
-
 class hashTable {
 
-};
 
+
+};
 
 
 #endif //ASSIGNMENT1_HASHTABLE_H

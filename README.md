@@ -1,0 +1,1 @@
+This is a program to compare two algorithms which implement the same functionality.

@@ -19,6 +19,7 @@
 using namespace std;
 using namespace std::chrono;
 
+
 //#include "algorithmOps.cpp"
 //#include "generateData.cpp"
 //#include "csvGenerator.cpp"
@@ -30,14 +31,14 @@ using namespace std::chrono;
 /********************************************
  *        PREPROCESSOR DECLERATION          *
  * ******************************************/
-#define LARGE_ARRAY_VALUE (20000) // Defining the value for the large array generator
-#define LARGE_ARRAY_SIMS (1)
+#define LARGE_ARRAY_DIST (2000) // Defining the value for the large array generator
+
 // These ARRAY_* are for all ARRAY'S which are used to test the operations and also the execution time of the algorithm
 #define ARRAY_STEP_SIZE (501) // Defining the step size for the random array
 #define ARRAY_NUM_SIMS (250) // Defining the number of same length arrays for the random implementation
 #define RANDOM_RANGE (100000) // Range of the random variable
 #define SIMULATIONS (10) // How many simulations that the program will run
-
+#define ZERO_ELEMENTS (10) // The number for each element in the zero elements functional test
 // Max value
 //#define MAX_VALUE ()
 
@@ -91,6 +92,14 @@ int testMedian(vector<int> &input);
 
 // algorithmTime.cpp
 int BruteForceMedianTime(vector<int> &A);
+
+// MinDistance.cpp
+int MinDistance(vector<int> &A);
+
+// testGenerationData.cpp
+vector<int> largeDist();
+vector<int> zeroDist();
+
 
 
 
