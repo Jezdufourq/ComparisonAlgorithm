@@ -26,6 +26,18 @@
     // ~ Random sorted distance
     // ~ Random reversed distance
 
+
+
+// THINGS TO ADD IN THE ASSIGMENT
+    // ~ TREND BETWEEN BOTH OF THE ALGORITHMS COMPARISON
+    // ~ THEORETICAL COMPARISON USING MATHS
+
+// TESTING
+    // ~ DISTANCE BETWEEN EACH OF THE ELEMENTS
+    // ~ LENGTH OF THE ARRAY
+
+// EMAIL
+    // c.wickramage@qut.edu.au
 #include "headerFile.h"
 
 // ==FUNCTIONAL TESTS==

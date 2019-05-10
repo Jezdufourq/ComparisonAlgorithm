@@ -17,9 +17,9 @@ int MinDistance2(vector<int> &A)
         for(int j = i + 1; j <= (size - 1); j++)
         {
             temp = abs(A[i] - A[j]);
-            if (temp < dmin)
+            if ((++basicOp2 > 0) && (temp < dmin))
             {
-                basicOp2++;
+//                basicOp2++;
                 dmin = temp;
             }
         }
