@@ -9,18 +9,11 @@ vector<vector<int>> generateArray(TEST_TYPE type)
 
     srand(time(0));
     switch (type) {
-        case NEGATIVE:
-            for (int i = 0; i < SIMULATIONS; i++)
-            {
-                for (int j = 0; j >= -((int) SIMULATIONS); j--)
-                {
-                    innerArray.push_back(j);
-                }
-                outputArray.push_back(innerArray);
-                innerArray.clear();
-            }
+        case LARGE_INPUT:
             break;
-        case ODD:
+        case ZERO_INPUT:
+            break;
+        case ODD_INPUT:
             for (int i = 0; i < SIMULATIONS; i++)
             {
                 for (int j = 1; j < (i*2)+2; j++)
@@ -31,7 +24,7 @@ vector<vector<int>> generateArray(TEST_TYPE type)
                 innerArray.clear();
             }
             break;
-        case EVEN:
+        case EVEN_INPUT:
             for (int i = 0; i < SIMULATIONS; i++)
             {
                 for (int j = 1; j < (i*2)+1; j++)
@@ -42,8 +35,8 @@ vector<vector<int>> generateArray(TEST_TYPE type)
                 innerArray.clear();
             }
             break;
-        case LARGE:
-            for (int i = 0; i < LARGE_ARRAY_SIMS; i++)
+        case LARGE_DIST:
+            for (int i = 0; i < LARGE_ARRAY_DIST; i++)
             {
                 for (int j = 1; j < LARGE_ARRAY_DIST; j++)
                 {
@@ -53,7 +46,7 @@ vector<vector<int>> generateArray(TEST_TYPE type)
                 innerArray.clear();
             }
             break;
-        case ONELEN:
+        case ONE_DIST:
             for (int i = 0; i < SIMULATIONS; i++)
             {
                 for (int j = 1; j <= 1; j++)
@@ -65,7 +58,7 @@ vector<vector<int>> generateArray(TEST_TYPE type)
             }
             break;
             // TODO: NEED TO INCLUDE NO LENGTH IN HERE SO IT RETURNS 0
-        case NOLEN:
+        case NO_DIST:
             for (int i = 0; i < SIMULATIONS; i++)
             {
                 outputArray.push_back(innerArray);
@@ -84,7 +77,6 @@ vector<vector<int>> generateArray(TEST_TYPE type)
                     }
                     outputArray.push_back(innerArray);
                     innerArray.clear();
-
                 }
             }
             break;

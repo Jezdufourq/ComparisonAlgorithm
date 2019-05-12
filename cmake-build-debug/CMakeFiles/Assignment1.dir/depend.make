@@ -3,9 +3,12 @@
 
 CMakeFiles/Assignment1.dir/main.cpp.o: ../MinDistance.cpp
 CMakeFiles/Assignment1.dir/main.cpp.o: ../MinDistance2.cpp
-CMakeFiles/Assignment1.dir/main.cpp.o: ../hashTable.cpp
-CMakeFiles/Assignment1.dir/main.cpp.o: ../hashTable.h
+CMakeFiles/Assignment1.dir/main.cpp.o: ../csvGenerator.cpp
+CMakeFiles/Assignment1.dir/main.cpp.o: ../csvTemplate.cpp
+CMakeFiles/Assignment1.dir/main.cpp.o: ../csvTemplate.h
+CMakeFiles/Assignment1.dir/main.cpp.o: ../generateData.cpp
 CMakeFiles/Assignment1.dir/main.cpp.o: ../headerFile.h
 CMakeFiles/Assignment1.dir/main.cpp.o: ../main.cpp
+CMakeFiles/Assignment1.dir/main.cpp.o: ../runTests.cpp
 CMakeFiles/Assignment1.dir/main.cpp.o: ../testGenerateData.cpp
 

@@ -19,7 +19,6 @@
 using namespace std;
 using namespace std::chrono;
 
-
 //#include "algorithmOps.cpp"
 //#include "generateData.cpp"
 //#include "csvGenerator.cpp"
@@ -32,7 +31,7 @@ using namespace std::chrono;
  *        PREPROCESSOR DECLERATION          *
  * ******************************************/
 #define LARGE_ARRAY_DIST (2000) // Defining the value for the large array generator
-
+#define LARGE_ARRAY_SIMS (1) // Defining the value for the large array number of sims
 // These ARRAY_* are for all ARRAY'S which are used to test the operations and also the execution time of the algorithm
 #define ARRAY_STEP_SIZE (501) // Defining the step size for the random array
 #define ARRAY_NUM_SIMS (250) // Defining the number of same length arrays for the random implementation
@@ -43,15 +42,16 @@ using namespace std::chrono;
 //#define MAX_VALUE ()
 
 enum TEST_TYPE{
-    NEGATIVE = 0,
-    ODD = 1,
-    EVEN = 2,
-    LARGE = 3,
-    ONELEN = 4,
-    NOLEN = 5,
-    RANDOM = 6,
-    REVERSED = 7,
-    SORTED = 8,
+    LARGE_DIST = 0,
+    NO_DIST = 1,
+    ONE_DIST = 2,
+    LARGE_INPUT = 3,
+    ZERO_INPUT = 4,
+    EVEN_INPUT = 5,
+    ODD_INPUT = 6,
+    RANDOM = 7,
+    REVERSED = 8,
+    SORTED = 9,
 };
 
 enum PROGRAM_TYPE{
