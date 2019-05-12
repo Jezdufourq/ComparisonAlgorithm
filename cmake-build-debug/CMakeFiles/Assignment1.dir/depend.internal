@@ -4,11 +4,9 @@
 CMakeFiles/Assignment1.dir/main.cpp.o
  /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/MinDistance.cpp
  /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/MinDistance2.cpp
- /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/csvGenerator.cpp
- /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/csvTemplate.cpp
- /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/csvTemplate.h
  /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/generateData.cpp
  /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/headerFile.h
  /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/main.cpp
  /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/runTests.cpp
- /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/testGenerateData.cpp
+ /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/testInterface.cpp
+ /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/testInterface.h

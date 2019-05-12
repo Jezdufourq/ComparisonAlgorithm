@@ -1,13 +1,10 @@
 #include "headerFile.h"
-//#include "generateData.cpp"
+#include "testInterface.h"
 #include "MinDistance.cpp"
 #include "MinDistance2.cpp"
-#include "testGenerateData.cpp"
 #include "generateData.cpp"
-#include "csvGenerator.cpp"
 #include "runTests.cpp"
-#include "csvTemplate.cpp"
-#include "csvTemplate.h"
+#include "testInterface.cpp"
 
 
 // Calling the main method with the following arguments

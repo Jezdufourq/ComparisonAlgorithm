@@ -1,6 +1,4 @@
 #include "headerFile.h"
-#include "csvTemplate.h"
-
 
 void runFuncTest()
 {
@@ -9,7 +7,7 @@ void runFuncTest()
     vector<int> algo2Distance;
     vector<int> arrayLength;
 
-    auto funcObj = new csvTemplate;
+    auto funcObj = new testInterface();
     funcObj->setProgramType(PROGRAM_TYPE::FUNCTIONALITY);
     funcObj->createInputFile();
     funcObj->createOutputFile();
@@ -17,10 +15,11 @@ void runFuncTest()
     for (int i = TEST_TYPE::LARGE_DIST; i <= TEST_TYPE::SORTED; i++)
     {
         // TODO: Include the generateArray function which will be in the testgeneratedata file
-        inputVector = generateArray(i);
-        for (int i = 0; i < inputVector.size(); i++)
+        inputVector = generateArray((TEST_TYPE)i);
+        // TODO: Function below is not correct
+        for (int j = 0; j < inputVector.size(); j++)
         {
-            arrayLength.push_back(inputVector[i].size());
+            arrayLength.push_back(inputVector[j].size());
         }
 
         funcObj->setInputArrayLength(arrayLength);
@@ -39,6 +38,10 @@ void runFuncTest()
         funcObj->populateInputFile();
         // Populating the output vector
         funcObj->populateOutputFile();
+        // Printing the results to the console
+        funcObj->printConsoleFunc();
+        // TODO: Clear everything in the object besides the input and output file streaming
+        funcObj->clearValues();
     }
     // Saving the input and output files
     funcObj->closeInputFile();
@@ -54,7 +57,7 @@ void runTimeTest()
     vector<int> algo2Distance;
     vector<int> arrayLength;
 
-    auto timeObj = new csvTemplate;
+    auto timeObj = new testInterface;
     timeObj->setProgramType(PROGRAM_TYPE::TIMING);
     timeObj->createInputFile();
     timeObj->createOutputFile();
@@ -62,11 +65,13 @@ void runTimeTest()
     for (int i = TEST_TYPE::RANDOM; i <= TEST_TYPE::SORTED; i++)
     {
         // TODO: Include the generateArray function which will be in the testgeneratedata file
-        inputVector = generateArray(i);
-        for (int i = 0; i < inputVector.size(); i++)
+        inputVector = generateArray((TEST_TYPE)i);
+        for (int j = 0; j < inputVector.size(); j++)
         {
-            arrayLength.push_back(inputVector[i].size());
+            arrayLength.push_back(inputVector[j].size());
         }
+        // Printing the input vector to the console
+        timeObj->printConsoleInput((TEST_TYPE)i);
 
         timeObj->setInputArrayLength(arrayLength);
         timeObj->setInputVector(inputVector); // Saving the input vector too the class
@@ -83,7 +88,7 @@ void runTimeTest()
             algo1Distance.push_back(algo1);
 
             high_resolution_clock::time_point a2t1 = high_resolution_clock::now();
-            int algo2 = MinDistanceTiming(col);
+            int algo2 = MinDistance2Timing(col);
             high_resolution_clock::time_point a2t2 = high_resolution_clock::now();
             auto algo2TimeOutput = std::chrono::duration_cast<std::chrono::nanoseconds>(a1t2-a1t1);
 
@@ -101,6 +106,9 @@ void runTimeTest()
 
         // Saving and populating the output vector
         timeObj->populateOutputFile();
+
+        // Printing the output results to the console
+        timeObj->printConsoleTime();
     }
     timeObj->closeInputFile();
     timeObj->closeOutputFile();
@@ -118,7 +126,7 @@ void runOpsTest()
     vector<int> algorithm2NumOpsVector;
     vector<int> arrayLength;
 
-    auto opObj = new csvTemplate;
+    auto opObj = new testInterface;
     opObj->setProgramType(PROGRAM_TYPE::OPERATIONS);
     opObj->createInputFile();
     opObj->createOutputFile();
@@ -126,8 +134,8 @@ void runOpsTest()
     for (int i = TEST_TYPE::RANDOM; i <= TEST_TYPE::SORTED; i++)
     {
         // TODO: Include the generateArray function which will be in the testgeneratedata file
-        inputVector = generateArray(i);
-        for (int i = 0; i < inputVector.size(); i++)
+        inputVector = generateArray((TEST_TYPE)i);
+        for (int j = 0; j < inputVector.size(); j++)
         {
             arrayLength.push_back(inputVector[i].size());
         }
@@ -152,6 +160,9 @@ void runOpsTest()
 
         // Saving and populating the output vector
         opObj->populateOutputFile();
+
+        // Printing the results to the console
+        opObj->printConsoleOp();
     }
     opObj->closeOutputFile();
     opObj->closeInputFile();

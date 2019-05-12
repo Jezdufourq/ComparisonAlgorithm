@@ -1,4 +1,4 @@
-#include "headerFile.h"
+#include  "headerFile.h"
 
 vector<vector<int>> generateArray(TEST_TYPE type)
 {
@@ -6,41 +6,26 @@ vector<vector<int>> generateArray(TEST_TYPE type)
     vector<int> innerArray;
     int Count = 0;
     int random = 0;
-
     srand(time(0));
+
     switch (type) {
-        case LARGE_INPUT:
-            break;
-        case ZERO_INPUT:
-            break;
-        case ODD_INPUT:
-            for (int i = 0; i < SIMULATIONS; i++)
-            {
-                for (int j = 1; j < (i*2)+2; j++)
-                {
-                    innerArray.push_back(j);
-                }
-                outputArray.push_back(innerArray);
-                innerArray.clear();
-            }
-            break;
-        case EVEN_INPUT:
-            for (int i = 0; i < SIMULATIONS; i++)
-            {
-                for (int j = 1; j < (i*2)+1; j++)
-                {
-                    innerArray.push_back(j);
-                }
-                outputArray.push_back(innerArray);
-                innerArray.clear();
-            }
-            break;
         case LARGE_DIST:
-            for (int i = 0; i < LARGE_ARRAY_DIST; i++)
+            for (int i = 0; i < SIMULATIONS; i++)
             {
-                for (int j = 1; j < LARGE_ARRAY_DIST; j++)
+                for (int j= 0; j < SIMULATIONS; j++)
                 {
-                    innerArray.push_back(j);
+                    innerArray.push_back(j*LARGE_ARRAY_DIST);
+                }
+                outputArray.push_back(innerArray);
+                innerArray.clear();
+            }
+            break;
+        case NO_DIST:
+            for (int i = 0; i < SIMULATIONS; i++)
+            {
+                for (int j = 0; j < SIMULATIONS; j++)
+                {
+                    innerArray.push_back(ZERO_ELEMENTS);
                 }
                 outputArray.push_back(innerArray);
                 innerArray.clear();
@@ -57,11 +42,43 @@ vector<vector<int>> generateArray(TEST_TYPE type)
                 innerArray.clear();
             }
             break;
-            // TODO: NEED TO INCLUDE NO LENGTH IN HERE SO IT RETURNS 0
-        case NO_DIST:
+        case LARGE_INPUT:
+            for (int i = 0; i < SIMULATIONS; i++)
+            {
+                for (int j = 1; j < LARGE_ARRAY_DIST; j++)
+                {
+                    innerArray.push_back(j);
+                }
+                outputArray.push_back(innerArray);
+                innerArray.clear();
+            }
+            break;
+        case ZERO_INPUT:
             for (int i = 0; i < SIMULATIONS; i++)
             {
                 outputArray.push_back(innerArray);
+            }
+            break;
+        case EVEN_INPUT:
+            for (int i = 0; i < SIMULATIONS; i++)
+            {
+                for (int j = 1; j < (i*2)+1; j++)
+                {
+                    innerArray.push_back(j);
+                }
+                outputArray.push_back(innerArray);
+                innerArray.clear();
+            }
+            break;
+        case ODD_INPUT:
+            for (int i = 0; i < SIMULATIONS; i++)
+            {
+                for (int j = 1; j < (i*2)+2; j++)
+                {
+                    innerArray.push_back(j);
+                }
+                outputArray.push_back(innerArray);
+                innerArray.clear();
             }
             break;
         case RANDOM:
@@ -110,7 +127,6 @@ vector<vector<int>> generateArray(TEST_TYPE type)
                 }
             }
             break;
-
     }
     return outputArray;
 }

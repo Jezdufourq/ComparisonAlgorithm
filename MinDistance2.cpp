@@ -1,7 +1,5 @@
-//
-// Created by Jez Dufourq on 2019-05-09.
-//
 #include "headerFile.h"
+
 unsigned long long basicOp2 = 0;
 
 // BasicOp implementation of the algorithm

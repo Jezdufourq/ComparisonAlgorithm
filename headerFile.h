@@ -1,7 +1,7 @@
 #pragma once
 #ifndef ASSIGNMENT1_HEADERFILE_H
 #define ASSIGNMENT1_HEADERFILE_H
-#endif //ASSIGNMENT1_HEADERFILE_H
+
 /********************************************
  *        HEADER FILES DECLERATION          *
  * ******************************************/
@@ -19,12 +19,9 @@
 using namespace std;
 using namespace std::chrono;
 
-//#include "algorithmOps.cpp"
+//#include "MinDistance.cpp"
+//#include "MinDistance2.cpp"
 //#include "generateData.cpp"
-//#include "csvGenerator.cpp"
-//#include "consoleGenerator.cpp"
-//#include "comparisonAlgorithm.cpp"
-//#include "algorithmTime.cpp"
 //#include "runTests.cpp"
 
 /********************************************
@@ -103,6 +100,6 @@ vector<int> zeroDist();
 
 
 
-
+#endif //ASSIGNMENT1_HEADERFILE_H
 
 
