@@ -12,12 +12,12 @@ private:
     vector<int> algorithm2NumOpsVector;
     vector<double> algorithm1ExecTimeVector;
     vector<double> algorithm2ExecTimeVector;
+    string inputStr, outputStr;
     PROGRAM_TYPE programType;
     TEST_TYPE testType;
     ofstream inputFile, outputFile;
 
 public:
-
     void createInputFile();
     void populateInputFile();
     void closeInputFile();

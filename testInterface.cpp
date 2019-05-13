@@ -1,6 +1,5 @@
 #include "testInterface.h"
 
-
 void testInterface::createInputFile()
 {
     switch(testInterface::programType)

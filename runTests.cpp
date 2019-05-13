@@ -3,16 +3,16 @@
 void runFuncTest()
 {
     vector<vector<int>> inputVector;
-    vector<int> algo1Distance;
+    vector<int> algo1Distance ;
     vector<int> algo2Distance;
     vector<int> arrayLength;
 
     auto funcObj = new testInterface();
     funcObj->setProgramType(PROGRAM_TYPE::FUNCTIONALITY);
-    funcObj->createInputFile();
-    funcObj->createOutputFile();
+//    funcObj->createInputFile();
+//    funcObj->createOutputFile();
 
-    for (int i = TEST_TYPE::LARGE_DIST; i <= TEST_TYPE::SORTED; i++)
+    for (int i = TEST_TYPE::LARGE_DIST; i <= TEST_TYPE::ODD_INPUT; i++)
     {
         // TODO: Include the generateArray function which will be in the testgeneratedata file
         inputVector = generateArray((TEST_TYPE)i);
@@ -35,17 +35,22 @@ void runFuncTest()
         funcObj->setAlgorithm2Vector(algo2Distance);
         // TODO: Print to the console the results
         // Populating the input vector
-        funcObj->populateInputFile();
+//        funcObj->populateInputFile();
         // Populating the output vector
-        funcObj->populateOutputFile();
+//        funcObj->populateOutputFile();
         // Printing the results to the console
         funcObj->printConsoleFunc();
         // TODO: Clear everything in the object besides the input and output file streaming
         funcObj->clearValues();
+
+        inputVector.clear();
+        algo1Distance.clear();
+        algo2Distance.clear();
+        arrayLength.clear();
     }
     // Saving the input and output files
-    funcObj->closeInputFile();
-    funcObj->closeOutputFile();
+//    funcObj->closeInputFile();
+//    funcObj->closeOutputFile();
 }
 
 void runTimeTest()
@@ -167,3 +172,5 @@ void runOpsTest()
     opObj->closeOutputFile();
     opObj->closeInputFile();
 }
+
+
