@@ -31,10 +31,13 @@ int main(int argc, char *argv[]) {
     switch (userInput) {
         case FUNCTIONALITY:
             runFuncTest();
+            break;
         case OPERATIONS:
             runOpsTest();
+            break;
         case TIMING:
             runTimeTest();
+            break;
         default: break;
     }
 
