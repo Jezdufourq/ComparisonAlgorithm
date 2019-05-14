@@ -6,13 +6,16 @@ void runFuncTest()
     vector<int> algo1Distance ;
     vector<int> algo2Distance;
     vector<int> arrayLength;
+    vector<int> testSolutions = {1,1,90,INT_MAX,1,1,1,1,1,1,0,INT_MAX};
+
 
     auto funcObj = new testInterface();
     funcObj->setProgramType(PROGRAM_TYPE::FUNCTIONALITY);
     funcObj->createInputFile();
     funcObj->createOutputFile();
+    funcObj->setTestSolutions(testSolutions);
 
-    for (int i = TEST_TYPE::LARGE_DIST; i <= TEST_TYPE::ODD_INPUT; i++)
+    for (int i = TEST_TYPE::EVEN_INPUT; i <= TEST_TYPE::LARGE_DIST; i++)
     {
         // TODO: Include the generateArray function which will be in the testgeneratedata file
         inputVector = generateArray((TEST_TYPE)i);
@@ -76,7 +79,7 @@ void runTimeTest()
             arrayLength.push_back(inputVector[j].size());
         }
         // Printing the input vector to the console
-        timeObj->printConsoleInput((TEST_TYPE)i);
+//        timeObj->printConsoleInput((TEST_TYPE)i);
 
         timeObj->setInputArrayLength(arrayLength);
         timeObj->setInputVector(inputVector); // Saving the input vector too the class
@@ -95,7 +98,7 @@ void runTimeTest()
             high_resolution_clock::time_point a2t1 = high_resolution_clock::now();
             int algo2 = MinDistance2Timing(col);
             high_resolution_clock::time_point a2t2 = high_resolution_clock::now();
-            auto algo2TimeOutput = std::chrono::duration_cast<std::chrono::nanoseconds>(a1t2-a1t1);
+            auto algo2TimeOutput = std::chrono::duration_cast<std::chrono::nanoseconds>(a2t2-a2t1);
 
             algo2ExecTime.push_back(algo2TimeOutput.count());
             algo2Distance.push_back(algo2);
@@ -114,6 +117,11 @@ void runTimeTest()
 
         // Printing the output results to the console
         timeObj->printConsoleTime();
+
+        inputVector.clear();
+        algo1Distance.clear();
+        algo2Distance.clear();
+        arrayLength.clear();
     }
     timeObj->closeInputFile();
     timeObj->closeOutputFile();
@@ -125,8 +133,8 @@ void runOpsTest()
 {
     vector<vector<int>> inputVector;
     vector<int> inputArrayLength;
-    vector<int> algorithm1Vector;
-    vector<int> algorithm2Vector;
+    vector<int> algo1Distance;
+    vector<int> algo2Distance;
     vector<int> algorithm1NumOpsVector;
     vector<int> algorithm2NumOpsVector;
     vector<int> arrayLength;
@@ -142,7 +150,7 @@ void runOpsTest()
         inputVector = generateArray((TEST_TYPE)i);
         for (int j = 0; j < inputVector.size(); j++)
         {
-            arrayLength.push_back(inputVector[i].size());
+            arrayLength.push_back(inputVector[j].size());
         }
         opObj->setInputArrayLength(arrayLength);
         opObj->setInputVector(inputVector); // Saving the input vector too the class
@@ -152,11 +160,11 @@ void runOpsTest()
             algorithm1NumOpsVector.push_back(basicOp);
             algorithm2NumOpsVector.push_back(basicOp2);
             // Running the tests, storing the results in a vector to compare
-            algorithm1Vector.push_back(MinDistance(col));
-            algorithm2Vector.push_back(MinDistance2(col));
+            algo1Distance.push_back(MinDistance(col));
+            algo2Distance.push_back(MinDistance2(col));
         }
-        opObj->setAlgorithm1Vector(algorithm1Vector);
-        opObj->setAlgorithm2Vector(algorithm2Vector);
+        opObj->setAlgorithm1Vector(algo1Distance);
+        opObj->setAlgorithm2Vector(algo2Distance);
         opObj->setAlgorithm1NumOpsVector(algorithm1NumOpsVector);
         opObj->setAlgorithm2NumOpsVector(algorithm2NumOpsVector);
         // TODO: Print to the console the results
@@ -168,6 +176,11 @@ void runOpsTest()
 
         // Printing the results to the console
         opObj->printConsoleOp();
+
+        inputVector.clear();
+        algo1Distance.clear();
+        algo2Distance.clear();
+        arrayLength.clear();
     }
     opObj->closeOutputFile();
     opObj->closeInputFile();

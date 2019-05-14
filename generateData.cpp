@@ -9,74 +9,98 @@ vector<vector<int>> generateArray(TEST_TYPE type)
     srand(time(0));
 
     switch (type) {
-        case LARGE_DIST:
-            for (int i = 0; i < SIMULATIONS; i++)
-            {
-                for (int j= 0; j < SIMULATIONS; j++)
-                {
-                    innerArray.push_back(j*LARGE_ARRAY_DIST);
-                }
-                outputArray.push_back(innerArray);
-                innerArray.clear();
-            }
-            break;
-        case NO_DIST:
-            for (int i = 0; i < SIMULATIONS; i++)
-            {
-                for (int j = 0; j < SIMULATIONS; j++)
-                {
-                    innerArray.push_back(ZERO_ELEMENTS);
-                }
-                outputArray.push_back(innerArray);
-                innerArray.clear();
-            }
-            break;
-        case ONE_DIST:
-            for (int i = 0; i < SIMULATIONS; i++)
-            {
-                for (int j = 1; j <= 1; j++)
-                {
-                    innerArray.push_back(j);
-                }
-                outputArray.push_back(innerArray);
-                innerArray.clear();
-            }
-            break;
-        case LARGE_INPUT:
-            for (int i = 0; i < SIMULATIONS; i++)
-            {
-                for (int j = 1; j < LARGE_ARRAY_DIST; j++)
-                {
-                    innerArray.push_back(j);
-                }
-                outputArray.push_back(innerArray);
-                innerArray.clear();
-            }
-            break;
-        case ZERO_INPUT:
-            for (int i = 0; i < SIMULATIONS; i++)
-            {
-                outputArray.push_back(innerArray);
-            }
-            break;
         case EVEN_INPUT:
-            for (int i = 0; i < SIMULATIONS; i++)
+            for (int i = 0; i < 1; i++)
             {
-                for (int j = 1; j < (i*2)+1; j++)
-                {
-                    innerArray.push_back(j);
-                }
+                innerArray = {1,2,3,4,5,6,7,8,9,10};
                 outputArray.push_back(innerArray);
                 innerArray.clear();
             }
             break;
         case ODD_INPUT:
-            for (int i = 0; i < SIMULATIONS; i++)
+            for (int i = 0; i < 1; i++)
             {
-                for (int j = 1; j < (i*2)+2; j++)
-                {
-                    innerArray.push_back(j);
-                }
+                innerArray = {1,2,3,4,5,6,7,8,9,10,11};
+                outputArray.push_back(innerArray);
+                innerArray.clear();
+            }
+            break;
+        case PAIR_ELEM:
+            for (int i = 0; i < 1; i++)
+            {
+                innerArray = {10,100};
+                outputArray.push_back(innerArray);
+                innerArray.clear();
+            }
+            break;
+        case SINGLE_ELEM:
+            for (int i = 0; i < 1; i++)
+            {
+                innerArray = {1};
+                outputArray.push_back(innerArray);
+                innerArray.clear();
+            }
+            break;
+        case REPEAT_ELEM:
+            for (int i = 0; i < 1; i++)
+            {
+                innerArray = {1,1,1,2,2,2,3,3,4,4,4,4,5,5,5,6,6,6,7,8,9,10,10};
+                outputArray.push_back(innerArray);
+                innerArray.clear();
+            }
+            break;
+        case LARGE_ORDERED:
+            for (int i = 0; i < 1; i++)
+            {
+                innerArray = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+                outputArray.push_back(innerArray);
+                innerArray.clear();
+            }
+            break;
+        case LARGE_REVERSE_ORDERED:
+            for (int i = 0; i < 1; i++)
+            {
+                innerArray = {20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1};
+                outputArray.push_back(innerArray);
+                innerArray.clear();
+            }
+            break;
+        case LARGE_UNORDERED:
+            for (int i = 0; i < 1; i++)
+            {
+                innerArray = {50,62,85,40,3,520,56,52,1,111,2,35,6,105,4,8,7,5,10,88};
+                outputArray.push_back(innerArray);
+                innerArray.clear();
+            }
+            break;
+        case NEG_UNORDERED:
+            for (int i = 0; i < 1; i++)
+            {
+                innerArray = {-5,-9,-6,-1,-2,-40,-10,-20};
+                outputArray.push_back(innerArray);
+                innerArray.clear();
+            }
+            break;
+        case MIX_UNORDERED:
+            for (int i = 0; i < 1; i++)
+            {
+                innerArray = {5,20,-5,26,4,-2,0,1,-4};
+                outputArray.push_back(innerArray);
+                innerArray.clear();
+            }
+            break;
+        case NO_DIST:
+            for (int i = 0; i < 1; i++)
+            {
+                innerArray = {1,1,1,1,1,1,1,1,1,1};
+                outputArray.push_back(innerArray);
+                innerArray.clear();
+            }
+            break;
+        case LARGE_DIST:
+            for (int i = 0; i < 1; i++)
+            {
+                innerArray = {0,2147483647};
                 outputArray.push_back(innerArray);
                 innerArray.clear();
             }
