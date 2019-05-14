@@ -5,16 +5,13 @@ void testInterface::createInputFile()
     switch(testInterface::programType)
     {
         case FUNCTIONALITY:
-            testInterface::inputFile.open("FUNCTIONALITY_INPUT.csv");
-            testInterface::inputFile << "FUNCTIONALITY TEST" << endl;
+            testInterface::inputStr = "FUNCTIONALITY TEST\n";
             break;
         case TIMING:
-            testInterface::inputFile.open("TIMING_INPUT.csv");
-            testInterface::inputFile << "TIMING TEST" << endl;
+            testInterface::inputStr = "TIMING TEST\n";
             break;
         case OPERATIONS:
-            testInterface::inputFile.open("OPERATIONS_INPUT.csv");
-            testInterface::inputFile << "OPERATIONS TEST" << endl;
+            testInterface::inputStr = "OPERATION TEST\n";
             break;
         default:break;
     }
@@ -22,23 +19,36 @@ void testInterface::createInputFile()
 
 void testInterface::populateInputFile()
 {
-    testInterface::inputFile << "TEST: " << testType << endl;
-    testInterface::inputFile << "TestNumber, InputArray" << endl;
+    testInterface::inputStr.append("TEST: " + to_string(testType) + "\n");
     int i = 0;
     for (auto &row : testInterface::inputVector)
     {
-        testInterface::inputFile << i << ",";
+        testInterface::inputStr.append(to_string(i) + ",");
         for (auto &col : row)
         {
-            testInterface::inputFile << col << ",";
+            testInterface::inputStr.append(to_string(col) + ",");
         }
-        testInterface::inputFile << "," << endl;
+        testInterface::inputStr.append(",\n");
         i++;
     }
 }
 
 void testInterface::closeInputFile()
 {
+    switch(testInterface::programType) {
+        case FUNCTIONALITY:
+            testInterface::inputFile.open("FUNC_INPUT.csv");
+            break;
+        case TIMING:
+            testInterface::inputFile.open("TIME_INPUT.csv");
+            break;
+        case OPERATIONS:
+            testInterface::inputFile.open("OP_INPUT.csv");
+            break;
+        default:
+            break;
+    }
+    testInterface::inputFile << testInterface::inputStr;
     testInterface::inputFile.close();
 }
 
@@ -47,13 +57,13 @@ void testInterface::createOutputFile()
     switch(testInterface::programType)
     {
         case FUNCTIONALITY:
-            testInterface::inputFile.open("FUNCTIONALITY_OUTPUT.csv");
+            testInterface::outputStr = "FUNCTIONALITY TEST\n";
             break;
         case TIMING:
-            testInterface::inputFile.open("TIMING_OUTPUT.csv");
+            testInterface::outputStr = "TIMING TEST\n";
             break;
         case OPERATIONS:
-            testInterface::inputFile.open("OPERATIONS_OUTPUT.csv");
+            testInterface::outputStr = "OPERATION TEST\n";
             break;
         default:break;
     }
@@ -61,17 +71,18 @@ void testInterface::createOutputFile()
 
 void testInterface::populateOutputFile()
 {
-    testInterface::inputFile << "TEST: " << testType << endl;
+    testInterface::outputStr.append("TEST: " + to_string(testType) + "\n");
     switch(testInterface::programType)
     {
         case FUNCTIONALITY:
-            testInterface::inputFile << "TestNumber, InputArrayLength, Algo1Distance, Algo2Distance, PASS/FAIL" << endl;
+            testInterface::outputStr.append("TestNumber, InputArrayLength, Algo1Distance, Algo2Distance, PASS/FAIL\n");
             for(int i = 0; i < testInterface::algorithm1Vector.size(); i++)
             {
-                testInterface::outputFile << i << ",";
-                testInterface::outputFile << testInterface::inputArrayLength[i] << ",";
-                testInterface::outputFile << testInterface::algorithm1Vector[i] << ",";
-                testInterface::outputFile << testInterface::algorithm2Vector[i] << ",";
+                testInterface::outputStr.append(to_string(i) + ",");
+                testInterface::outputStr.append(to_string(testInterface::inputArrayLength[i]) + ",");
+                testInterface::outputStr.append(to_string(testInterface::algorithm1Vector[i]) + ",");
+                testInterface::outputStr.append(to_string(testInterface::algorithm2Vector[i]) + ",\n");
+
                 // TODO: Need to include the comparison to check if the actual distance is the expected distance
             }
             break;
@@ -79,24 +90,24 @@ void testInterface::populateOutputFile()
             testInterface::inputFile << "TestNumber, InputArrayLength, Algo1Distance, Algo2Distance, Algo1ExecTime, Algo2ExecTime" << endl;
             for(int i = 0; i < testInterface::algorithm1Vector.size(); i++)
             {
-                testInterface::outputFile << i << ",";
-                testInterface::outputFile << testInterface::inputArrayLength[i] << ",";
-                testInterface::outputFile << testInterface::algorithm1Vector[i] << ",";
-                testInterface::outputFile << testInterface::algorithm2Vector[i] << ",";
-                testInterface::outputFile << testInterface::algorithm1ExecTimeVector[i] << ",";
-                testInterface::outputFile << testInterface::algorithm2ExecTimeVector[i] << endl;
+                testInterface::outputStr.append(to_string(i) + ",");
+                testInterface::outputStr.append(to_string(testInterface::inputArrayLength[i]) + ",");
+                testInterface::outputStr.append(to_string(testInterface::algorithm1Vector[i]) + ",");
+                testInterface::outputStr.append(to_string(testInterface::algorithm2Vector[i]) + ",");
+                testInterface::outputStr.append(to_string(testInterface::algorithm1ExecTimeVector[i]) + ",");
+                testInterface::outputStr.append(to_string(testInterface::algorithm2ExecTimeVector[i]) + ",\n");
             }
             break;
         case OPERATIONS:
             testInterface::inputFile << "TestNumber, InputArrayLength, Algo1Distance, Algo2Distance, Algo1NumOps, Algo1NumOps" << endl;
             for(int i = 0; i < testInterface::algorithm1Vector.size(); i++)
             {
-                testInterface::outputFile << i << ",";
-                testInterface::outputFile << testInterface::inputArrayLength[i] << ",";
-                testInterface::outputFile << testInterface::algorithm1Vector[i] << ",";
-                testInterface::outputFile << testInterface::algorithm2Vector[i] << ",";
-                testInterface::outputFile << testInterface::algorithm1NumOpsVector[i] << ",";
-                testInterface::outputFile << testInterface::algorithm2NumOpsVector[i] << endl;
+                testInterface::outputStr.append(to_string(i) + ",");
+                testInterface::outputStr.append(to_string(testInterface::inputArrayLength[i]) + ",");
+                testInterface::outputStr.append(to_string(testInterface::algorithm1Vector[i]) + ",");
+                testInterface::outputStr.append(to_string(testInterface::algorithm2Vector[i]) + ",");
+                testInterface::outputStr.append(to_string(testInterface::algorithm1NumOpsVector[i]) + ",");
+                testInterface::outputStr.append(to_string(testInterface::algorithm2NumOpsVector[i]) + ",\n");
             }
             break;
         default:break;
@@ -105,6 +116,20 @@ void testInterface::populateOutputFile()
 
 void testInterface::closeOutputFile()
 {
+    switch(testInterface::programType) {
+        case FUNCTIONALITY:
+            testInterface::outputFile.open("FUNC_OUTPUT.csv");
+            break;
+        case TIMING:
+            testInterface::outputFile.open("TIME_OUTPUT.csv");
+            break;
+        case OPERATIONS:
+            testInterface::outputFile.open("OP_OUTPUT.csv");
+            break;
+        default:
+            break;
+    }
+    testInterface::outputFile << testInterface::outputStr;
     testInterface::outputFile.close();
 }
 

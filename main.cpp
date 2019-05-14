@@ -5,6 +5,7 @@
 #include "generateData.cpp"
 #include "runTests.cpp"
 #include "testInterface.cpp"
+#include "ComparisonMinDist.cpp"
 
 
 // Calling the main method with the following arguments

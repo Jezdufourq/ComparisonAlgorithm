@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+/Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/ComparisonMinDist.cpp
+
 /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/MinDistance.cpp
 headerFile.h
 /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/headerFile.h
@@ -55,6 +57,8 @@ runTests.cpp
 /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/runTests.cpp
 testInterface.cpp
 /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/testInterface.cpp
+ComparisonMinDist.cpp
+/Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/ComparisonMinDist.cpp
 
 /Users/jezdufourq/OneDrive - Queensland University of Technology/UNIVERSITY/2019/SEMESTER 1/CAB301/ASSESSMENT/Assignment 2/Src/runTests.cpp
 headerFile.h
