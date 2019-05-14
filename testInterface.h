@@ -12,6 +12,7 @@ private:
     vector<int> algorithm2NumOpsVector;
     vector<double> algorithm1ExecTimeVector;
     vector<double> algorithm2ExecTimeVector;
+    vector<int> testSolutions;
     string inputStr, outputStr;
     PROGRAM_TYPE programType;
     TEST_TYPE testType;
@@ -40,6 +41,8 @@ public:
     void setAlgorithm1Vector(const vector<int> &algorithm1Vector);
     void setAlgorithm1NumOpsVector(const vector<int> &algorithm1NumOpsVector);
     void setAlgorithm2NumOpsVector(const vector<int> &algorithm2NumOpsVector);
+
+    void setTestSolutions(const vector<int> &testSolutions);
 };
 
 

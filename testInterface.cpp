@@ -65,7 +65,7 @@ void testInterface::populateOutputFile()
     switch(testInterface::programType)
     {
         case FUNCTIONALITY:
-            testInterface::inputFile << "TestNumber, InputArrayLength, Algo1Distance, Algo2Distance, PASS/FAIL" << endl;
+            testInterface::inputFile << "TestNumber, InputArrayLength, Algo1Distance, Algo2Distance, TestSolutions, PASS/FAIL" << endl;
             for(int i = 0; i < testInterface::algorithm1Vector.size(); i++)
             {
                 testInterface::outputFile << i << ",";
@@ -73,6 +73,16 @@ void testInterface::populateOutputFile()
                 testInterface::outputFile << testInterface::algorithm1Vector[i] << ",";
                 testInterface::outputFile << testInterface::algorithm2Vector[i] << ",";
                 // TODO: Need to include the comparison to check if the actual distance is the expected distance
+
+                cout << " | " << testInterface::testSolutions[i]  << setw(16) << endl;
+                // TODO: Need to implement the pass and fail functionality
+                if(testInterface::algorithm1Vector[i] == testInterface::testSolutions[i] &&
+                   testInterface::algorithm2Vector[i] == testInterface::testSolutions[i])
+                {
+                    cout << " | " << "PASS" << endl;
+                }else{
+                    cout << " | " << "FAIL" << endl;
+                }
             }
             break;
         case TIMING:
@@ -113,26 +123,38 @@ void testInterface::printConsoleInput(TEST_TYPE test)
     setfill('=');
     switch(test)
     {
-        case LARGE_DIST:
-            cout << "==LARGE DISTANCE TEST INPUT==" << endl;
-            break;
-        case NO_DIST:
-            cout << "==NO DISTANCE TEST INPUT==" << endl;
-            break;
-        case ONE_DIST:
-            cout << "==ONE DISTANCE TEST INPUT==" << endl;
-            break;
-        case LARGE_INPUT:
-            cout << "==LARGE TEST INPUT==" << endl;
-            break;
-        case ZERO_INPUT:
-            cout <<  "==ZERO TEST INPUT==" << endl;
+        case ODD_INPUT:
+            cout << "==ODD LENGTH TEST INPUT==" << endl;
             break;
         case EVEN_INPUT:
-            cout <<  "==EVEN TEST INPUT==" << endl;
+            cout << "==EVEN LENGTH TEST INPUT==" << endl;
             break;
-        case ODD_INPUT:
-            cout <<  "==ODD TEST INPUT==" << endl;
+        case PAIR_ELEM:
+            cout << "==PAIR ELEMENTS TEST INPUT==" << endl;
+            break;
+        case SINGLE_ELEM:
+            cout << "==SINGLE ELEMENT TEST INPUT==" << endl;
+            break;
+        case REPEAT_ELEM:
+            cout <<  "==REPEATED ELEMENT TEST INPUT==" << endl;
+            break;
+        case LARGE_ORDERED:
+            cout <<  "==LARGE ORDERED TEST INPUT==" << endl;
+            break;
+        case LARGE_UNORDERED:
+            cout <<  "==LARGE UNORDERED TEST INPUT==" << endl;
+            break;
+        case NEG_UNORDERED:
+            cout <<  "==NEGATIVE UNORDERED TEST INPUT==" << endl;
+            break;
+        case MIX_UNORDERED:
+            cout <<  "==MIX UNORDERED TEST INPUT==" << endl;
+            break;
+        case NO_DIST:
+            cout <<  "==NO DISTANCE TEST INPUT==" << endl;
+            break;
+        case LARGE_DIST:
+            cout <<  "==LARGE DISTANCE TEST INPUT==" << endl;
             break;
         case RANDOM:
             cout << "==RANDOM TEST INPUT==" << endl;
@@ -164,22 +186,24 @@ void testInterface::printConsoleInput(TEST_TYPE test)
 
 void testInterface::printConsoleFunc()
 {
-    cout << "| TestNumber | ArrayLength | Algo1Distance | Algo2Distance | PASS/FAIL |"<< endl;
-    cout << "|------------|-------------|---------------|---------------|-----------|"<< endl;
+    cout << "| TestNumber | ArrayLength | Algo1Distance | Algo2Distance | TestSolution | PASS/FAIL |"<< endl;
+    cout << "|------------|-------------|---------------|---------------|--------------|-----------|"<< endl;
 
     for (int i = 0; i < testInterface::algorithm1Vector.size(); i++)
     {
         cout << "| " << i <<setw(12);
-        cout << " | " << testInterface::inputArrayLength[i] <<setw(13);
-        cout << " | " << testInterface::algorithm1Vector[i]  <<setw(16);
-        cout << " | " << testInterface::algorithm2Vector[i]  <<setw(16) << endl;
+        cout << " | " << testInterface::inputArrayLength[i] << setw(13);
+        cout << " | " << testInterface::algorithm1Vector[i]  << setw(16);
+        cout << " | " << testInterface::algorithm2Vector[i]  << setw(16);
+        cout << " | " << testInterface::testSolutions[i]  << setw(16) << endl;
         // TODO: Need to implement the pass and fail functionality
-//            if(algo[i]==actual[i])
-//            {
-//                cout << " | " << "PASS" << endl;
-//            }else if (algo[i]!=actual[i]){
-//                cout << " | " << "FAIL" << endl;
-//            }
+        if(testInterface::algorithm1Vector[i] == testInterface::testSolutions[i] &&
+                testInterface::algorithm2Vector[i] == testInterface::testSolutions[i])
+        {
+                cout << " | " << "PASS" << endl;
+            }else{
+                cout << " | " << "FAIL" << endl;
+        }
     }
 }
 
@@ -241,5 +265,9 @@ void testInterface::setAlgorithm1NumOpsVector(const vector<int> &algorithm1NumOp
 }
 void testInterface::setAlgorithm2NumOpsVector(const vector<int> &algorithm2NumOpsVector) {
     testInterface::algorithm2NumOpsVector = algorithm2NumOpsVector;
+}
+
+void testInterface::setTestSolutions(const vector<int> &testSolutions) {
+    testInterface::testSolutions = testSolutions;
 }
 

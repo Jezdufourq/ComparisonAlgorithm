@@ -12,7 +12,7 @@ void runFuncTest()
 //    funcObj->createInputFile();
 //    funcObj->createOutputFile();
 
-    for (int i = TEST_TYPE::LARGE_DIST; i <= TEST_TYPE::ODD_INPUT; i++)
+    for (int i = TEST_TYPE::ODD_INPUT; i <= TEST_TYPE::LARGE_DIST; i++)
     {
         // TODO: Include the generateArray function which will be in the testgeneratedata file
         inputVector = generateArray((TEST_TYPE)i);
