@@ -13,7 +13,7 @@ int MinDistance(vector<int> &A) {
     {
         for(int j = 0; j <= (size - 1); j++)
         {
-            if((++basicOp > 0) && (i != j) && (abs(A[i] - A[j]) < dmin))
+            if((i != j) && (++basicOp > 0) && (abs(A[i] - A[j]) < dmin))
             {
                 dmin = abs(A[i] - A[j]);
             }

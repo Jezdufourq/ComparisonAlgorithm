@@ -19,21 +19,17 @@
 using namespace std;
 using namespace std::chrono;
 
-//#include "MinDistance.cpp"
-//#include "MinDistance2.cpp"
-//#include "generateData.cpp"
-//#include "runTests.cpp"
 
 /********************************************
  *        PREPROCESSOR DECLERATION          *
  * ******************************************/
-#define LARGE_ARRAY_DIST (2000) // Defining the value for the large array generator
+#define LARGE_ARRAY_DIST (INT_MAX) // Defining the value for the large array generator
 #define LARGE_ARRAY_SIMS (1) // Defining the value for the large array number of sims
 // These ARRAY_* are for all ARRAY'S which are used to test the operations and also the execution time of the algorithm
 #define ARRAY_STEP_SIZE (501) // Defining the step size for the random array
-#define ARRAY_NUM_SIMS (1) // Defining the number of same length arrays for the random implementation
+#define ARRAY_NUM_SIMS (20) // Defining the number of same length arrays for the random implementation
 #define RANDOM_RANGE (100000) // Range of the random variable
-#define SIMULATIONS (10) // How many simulations that the program will run
+#define SIMULATIONS (13) // How many simulations that the program will run
 #define ZERO_ELEMENTS (10) // The number for each element in the zero elements functional test
 
 
@@ -66,41 +62,39 @@ extern TEST_TYPE testType;
 /********************************************
  *          FUNCTION DECLERATION            *
  * ******************************************/
-
-// consoleGenerator.cpp
-void printConsoleInput(vector<vector<int>> const &input, TEST_TYPE test);
-void printConsoleFunctionality(vector<int> &actual, vector<int> &algo, vector<int> &arrayLength);
-void printConsoleOperations(vector<unsigned long long> &numOps, vector<double> &algo, vector<int> &arrayLength);
-void printConsoleTiming(vector<double> &execTime, vector<double> &algo, vector<int> &arrayLength);
-
-// runTests.cpp
-void runTests(TEST_TYPE test,  PROGRAM_TYPE program);
-
 // generateData.cpp
 vector<vector<int>> generateArray(TEST_TYPE type);
-
-// csvGenerator.cpp
-void createInputCsv(vector<vector<int>> const &input, TEST_TYPE test);
-void createOutputCsvFunc(vector<int> &arrayLen, vector<int> &algoMedian, vector<int> &actualMedian,TEST_TYPE test);
-void createOutputCsvOps(vector<int> &arrayLen, vector<int> &algoMedian, vector<unsigned long long> &numOps,TEST_TYPE test);
-void createOutputCsvTiming(vector<int> &arrayLen, vector<int> &algoMedian, vector<double> &execTime,TEST_TYPE test);
-
-// algorithmOps.cpp
-int BruteForceMedian(vector<int> &A);
-
-// comparisonAlgorithm.cpp
-int testMedian(vector<int> &input);
-
-// algorithmTime.cpp
-int BruteForceMedianTime(vector<int> &A);
-
+// testInterface.cpp
+void createInputFile();
+void populateInputFile();
+void closeInputFile();
+void createOutputFile();
+void populateOutputFile();
+void closeOutputFile();
+void printConsoleInput(TEST_TYPE test);
+void printConsoleFunc();
+void printConsoleOp();
+void printConsoleTime();
+void clearValues();
+void setInputVector(const vector<vector<int>> &inputVector);
+void setAlgorithm2Vector(const vector<int> &algorithm2Vector);
+void setAlgorithm1ExecTimeVector(const vector<double> &algorithm1ExecTimeVector);
+void setAlgorithm2ExecTimeVector(const vector<double> &algorithm2ExecTimeVector);
+void setInputArrayLength(const vector<int> &inputArrayLength);
+void setProgramType(PROGRAM_TYPE programType);
+void setTestType(TEST_TYPE testType);
+void setAlgorithm1Vector(const vector<int> &algorithm1Vector);
+void setAlgorithm1NumOpsVector(const vector<int> &algorithm1NumOpsVector);
+void setAlgorithm2NumOpsVector(const vector<int> &algorithm2NumOpsVector);
+void setTestSolutions(const vector<int> &testSolutions);
 // MinDistance.cpp
 int MinDistance(vector<int> &A);
-
-// testGenerationData.cpp
-vector<int> largeDist();
-vector<int> zeroDist();
-
+int MinDistanceTiming(vector<int> &A);
+// MinDistance2.cpp
+int MinDistance2(vector<int> &A);
+int MinDistance2Timing(vector<int> &A);
+// runTests.cpp
+void runFuncTest();
 
 
 

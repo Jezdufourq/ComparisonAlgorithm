@@ -41,7 +41,6 @@ public:
     void setAlgorithm1Vector(const vector<int> &algorithm1Vector);
     void setAlgorithm1NumOpsVector(const vector<int> &algorithm1NumOpsVector);
     void setAlgorithm2NumOpsVector(const vector<int> &algorithm2NumOpsVector);
-
     void setTestSolutions(const vector<int> &testSolutions);
 };
 

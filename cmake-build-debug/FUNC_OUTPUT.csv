@@ -13,7 +13,7 @@ TestNumber, InputArrayLength, Algo1Distance, Algo2Distance, TestSolutions, PASS/
 0,1,2147483647,2147483647,2147483647,PASS,
 TEST: 4
 TestNumber, InputArrayLength, Algo1Distance, Algo2Distance, TestSolutions, PASS/FAIL
-0,23,0,0,1,FAIL,
+0,23,0,0,0,PASS,
 TEST: 5
 TestNumber, InputArrayLength, Algo1Distance, Algo2Distance, TestSolutions, PASS/FAIL
 0,20,1,1,1,PASS,

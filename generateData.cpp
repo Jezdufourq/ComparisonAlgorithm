@@ -105,6 +105,7 @@ vector<vector<int>> generateArray(TEST_TYPE type)
                 innerArray.clear();
             }
             break;
+            //TODO: Need to add a very large array to this one (INT_MAX) size
         case RANDOM:
             for(int i = 0; i < SIMULATIONS; i++)
             {

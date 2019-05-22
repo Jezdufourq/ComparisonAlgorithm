@@ -6,7 +6,7 @@ void runFuncTest()
     vector<int> algo1Distance ;
     vector<int> algo2Distance;
     vector<int> arrayLength;
-    vector<int> testSolutions = {1,1,90,INT_MAX,1,1,1,1,1,1,0,INT_MAX};
+    vector<int> testSolutions = {1,1,90,INT_MAX,0,1,1,1,1,1,0,INT_MAX,0};
 
 
     auto funcObj = new testInterface();
@@ -87,16 +87,19 @@ void runTimeTest()
         for (auto &col : inputVector) // For the length of the input vector, run the test
         {
             // Running the tests, storing the results in a vector to compare
+            //Start the time
             high_resolution_clock::time_point a1t1 = high_resolution_clock::now();
             int algo1 = MinDistanceTiming(col);
+            //End the time
             high_resolution_clock::time_point a1t2 = high_resolution_clock::now();
             auto algo1TimeOutput = std::chrono::duration_cast<std::chrono::nanoseconds>(a1t2-a1t1);
 
             algo1ExecTime.push_back(algo1TimeOutput.count());
             algo1Distance.push_back(algo1);
-
+            // Start the time
             high_resolution_clock::time_point a2t1 = high_resolution_clock::now();
             int algo2 = MinDistance2Timing(col);
+            // End the time
             high_resolution_clock::time_point a2t2 = high_resolution_clock::now();
             auto algo2TimeOutput = std::chrono::duration_cast<std::chrono::nanoseconds>(a2t2-a2t1);
 
@@ -181,6 +184,8 @@ void runOpsTest()
         algo1Distance.clear();
         algo2Distance.clear();
         arrayLength.clear();
+        basicOp = 0;
+        basicOp2 = 0;
     }
     opObj->closeOutputFile();
     opObj->closeInputFile();
