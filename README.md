@@ -8,7 +8,7 @@ The pseudocode for both algorithms can be found below.
 # MinDistance2
 ![alt text](Images/MinDistance2.png)
 
-# Program overview#
+# Program overview
 The overview of the program can be found below
 ![alt text](Images/ProgramOverview.png)
 
